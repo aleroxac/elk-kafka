@@ -1,0 +1,16 @@
+  # - pipeline.id: kafka
+  #   config.string: |
+  #     input {
+  #       kafka {
+  #           topics => [ "apache" ]
+  #           bootstrap_servers => [ "kafka:9092" ]
+  #       }
+  #     }
+  #     output {
+  #         if [log_type] =~ "apache" {
+  #           pipeline { send_to => apache_address }
+  #         }
+  #     }
+
+  - pipeline.id: apache
+    path.config: "/usr/share/logstash/pipeline/apache.conf"

@@ -1,0 +1,11 @@
+filebeat.inputs:
+  - type: log
+    paths: 
+      - /logs/apache.log
+    fields_under_root: true
+    fields:
+      log_type: "apache"
+
+output.kafka:
+  hosts: [ "kafka:9092" ]
+  topic: "apache"
