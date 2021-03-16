@@ -7,5 +7,15 @@ filebeat.inputs:
       log_type: "apache"
 
 output.kafka:
+  worker: 20
   hosts: [ "kafka:9092" ]
   topic: "apache"
+  partition.round_robin:
+    reachable_only: false
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 1000000
+
+http.enabled: true
+http.host: localhost
+http.port: 5066

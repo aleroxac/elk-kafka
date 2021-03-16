@@ -7,5 +7,15 @@ xpack.monitoring.elasticsearch.password: changeme
 config.reload.automatic: true
 config.reload.interval: 30s
 
-# config.debug: false
-# log.level: info
+pipeline.workers: 20
+pipeline.batch.size: 500
+
+queue.type: persisted
+path.queue: path.data/queue
+
+dead_letter_queue.enable: true
+path.dead_letter_queue: path.data/dead_letter_queue
+
+# pipeline.separate_logs: true
+# config.debug: true
+# log.level: debug
