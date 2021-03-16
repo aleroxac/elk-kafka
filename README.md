@@ -33,6 +33,9 @@ docker-compose exec kafka bash -c 'watch -n1 kafka-consumer-groups --bootstrap-s
 ### Restarting index process
 assets/scripts/restart apache
 
+### Checking if index was been created
+curl -sf "http://localhost:9200/_cat/shards/apache*?v" --user elastic:changeme
+
 ### Creating Kibana index-pattern
 curl 'http://localhost:5601/api/saved_objects/index-pattern' \
   -H 'kbn-version: 7.10.0' \
